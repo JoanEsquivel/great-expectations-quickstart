@@ -3,8 +3,8 @@
 
 #Prequisites: Python version 3.8 to 3.11
 
-#pip3 install pandas
-#pip3 install great_expectations
+#pip install pandas
+#pip install great_expectations
 
 
 #1- Import the following libraries
@@ -34,14 +34,10 @@ batch = batch_definition.get_batch(batch_parameters={"dataframe": df})
 
 #Create an Expectation.
 #Expectations are a fundamental component of GX. They allow you to explicitly define the state to which your data should conform.
-#Run the following code to define an Expectation that the contents of the column passenger_count consist of values ranging from 1 to 6:
-
-
-
+#Run the following code to define an Expectation that the contents of the column passenger_count consist of values ranging from 2 to 6:
 expectation = gx.expectations.ExpectColumnValuesToBeBetween(
     column="passenger_count", min_value=2, max_value=6
 )
-
 
 #Run and get the results!
 validation_result = batch.validate(expectation)
